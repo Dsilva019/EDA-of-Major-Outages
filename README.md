@@ -1,6 +1,6 @@
 # Exploratory Data Analysis of Major Outages
 by Diego Silva (d1silva@ucsd.edu)
-<iframe src="assets/Cause_Category_Detail_Plot.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/detail_counts.html" width=800 height=600 frameBorder=0></iframe>
 
 
 # Introduction
