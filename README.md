@@ -48,12 +48,14 @@ In this project, I studied prepared and cleaned a data set containing major outa
 |   2005 |                           0.0467461  |                          0.00902935 |
 |   2006 |                           0.0531622  |                          0.020316   |
 |   2007 |                           0.0375802  |                          0.03386    |
+
 <iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
 <iframe src="assets/year_missingness_tvd_dist.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
+
 <iframe src="assets/kde_plot_real_vs_cust.html" width=800 height=600 frameBorder=0></iframe>
 # Hypothesis Testing
+
 | NERC.REGION   |     Fall |   Spring |   Summer |    Winter |
 |:--------------|---------:|---------:|---------:|----------:|
 | ECAR          | 0.235294 | 0.264706 | 0.411765 | 0.0882353 |
