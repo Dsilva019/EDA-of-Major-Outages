@@ -1,7 +1,6 @@
 # Exploratory Data Analysis of Major Outages
 by Diego Silva (d1silva@ucsd.edu)
-<iframe src="assets/detail_counts.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
+
 
 
 # Introduction
@@ -18,7 +17,9 @@ In this project, I studied prepared and cleaned a data set containing major outa
 |   2014 |       5 | Minnesota    | MN            | MRO           | East North Central |            -0.1 | normal             | intentional attack | vandalism               |               nan |                 1 |              nan |                  nan |       12.12 |        9.71 |        6.49 |          9.28 | 1.58699e+06 | 1.80776e+06 | 1.88793e+06 |   5.28423e+06 |      30.0325 |      34.2104 |      35.7276 |         2345860 |          284978 |            9898 |           2640737 |        88.8335 |        10.7916 |       0.37482  |              53499 |            49091 |          1.08979 |                 1.9 |           5226 |          291955 |       1.79    |             2.2 |      5457125 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |
 |   2010 |      10 | Minnesota    | MN            | MRO           | East North Central |            -1.5 | cold               | severe weather     | heavy wind              |               nan |              3000 |              nan |                70000 |       10.87 |        8.19 |        6.07 |          8.15 | 1.46729e+06 | 1.80168e+06 | 1.9513e+06  |   5.22212e+06 |      28.0977 |      34.501  |      37.366  |         2300291 |          276463 |           10150 |           2586905 |        88.9206 |        10.687  |       0.392361 |              50447 |            47287 |          1.06683 |                 2.7 |           4571 |          267895 |       1.70627 |             2.1 |      5310903 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |
 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |              nan |                68200 |       11.79 |        9.25 |        6.71 |          9.19 | 1.85152e+06 | 1.94117e+06 | 1.99303e+06 |   5.78706e+06 |      31.9941 |      33.5433 |      34.4393 |         2317336 |          278466 |           11010 |           2606813 |        88.8954 |        10.6822 |       0.422355 |              51598 |            48156 |          1.07148 |                 0.6 |           5364 |          277627 |       1.93209 |             2.2 |      5380443 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
-|   2015 |       7 | Minnesota    | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |       13.07 |       10.16 |        7.74 |         10.43 | 2.02888e+06 | 2.16161e+06 | 1.77794e+06 |   5.97034e+06 |      33.9826 |      36.2059 |      29.7795 |         2374674 |          289044 |            9812 |           2673531 |        88.8216 |        10.8113 |       0.367005 |              54431 |            49844 |          1.09203 |                 1.7 |           4873 |          292023 |       1.6687  |             2.2 |      5489594 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 0
+|   2015 |       7 | Minnesota    | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |       13.07 |       10.16 |        7.74 |         10.43 | 2.02888e+06 | 2.16161e+06 | 1.77794e+06 |   5.97034e+06 |      33.9826 |      36.2059 |      29.7795 |         2374674 |          289044 |            9812 |           2673531 |        88.8216 |        10.8113 |       0.367005 |              54431 |            49844 |          1.09203 |                 1.7 |           4873 |          292023 |       1.6687  |             2.2 |      5489594 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
+
+<iframe src="assets/demandloss_duration.html" width=800 height=600 frameBorder=0></iframe>
 
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
@@ -34,10 +35,10 @@ In this project, I studied prepared and cleaned a data set containing major outa
 | District of Columbia |                   1 |                       0 |                    0 |           0 |               0 |                9 |                               0 |
 | Florida              |                   4 |                       0 |                    2 |           0 |               3 |               26 |                              10 |
 
-
+<iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
 # Assessment of Missingness
 
-|   YEAR |   CUSTOMERS_AFFECTED_Missing = False |   CUSTOMERS_AFFECTED_Missing = True |
+|   YEAR |   CUSTOMERS AFFECTED Missing = False |   CUSTOMERS AFFECTED Missing = True |
 |-------:|-------------------------------------:|------------------------------------:|
 |   2000 |                           0.0192484  |                          0.0112867  |
 |   2001 |                           0.00733272 |                          0.0158014  |
@@ -47,14 +48,19 @@ In this project, I studied prepared and cleaned a data set containing major outa
 |   2005 |                           0.0467461  |                          0.00902935 |
 |   2006 |                           0.0531622  |                          0.020316   |
 |   2007 |                           0.0375802  |                          0.03386    |
-|   2008 |                           0.0889093  |                          0.0316027  |
-|   2009 |                           0.0476627  |                          0.0586907  |
-|   2010 |                           0.0678277  |                          0.0722348  |
-|   2011 |                           0.190651   |                          0.137698   |
-|   2012 |                           0.111824   |                          0.117381   |
-|   2013 |                           0.0705775  |                          0.171558   |
-|   2014 |                           0.0284143  |                          0.182844   |
-|   2015 |                           0.071494   |                          0.0925508  |
-|   2016 |                           0.0458295  |                          0.020316   |
+<iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/year_missingness_tvd_dist.html" width=800 height=600 frameBorder=0></iframe>
 
+<iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/kde_plot_real_vs_cust.html" width=800 height=600 frameBorder=0></iframe>
 # Hypothesis Testing
+| NERC.REGION   |     Fall |   Spring |   Summer |    Winter |
+|:--------------|---------:|---------:|---------:|----------:|
+| ECAR          | 0.235294 | 0.264706 | 0.411765 | 0.0882353 |
+| FRCC          | 0.325581 | 0.186047 | 0.325581 | 0.162791  |
+| FRCC, SERC    | 0        | 0        | 0        | 1         |
+| HECO          | 0.666667 | 0        | 0.333333 | 0         |
+| HI            | 1        | 0        | 0        | 0         |
+
+<iframe src="assets/outage_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/emp_tvd_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
