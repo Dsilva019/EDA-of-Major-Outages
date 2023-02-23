@@ -19,6 +19,8 @@ In this project, I studied prepared and cleaned a data set containing major outa
 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |              nan |                68200 |       11.79 |        9.25 |        6.71 |          9.19 | 1.85152e+06 | 1.94117e+06 | 1.99303e+06 |   5.78706e+06 |      31.9941 |      33.5433 |      34.4393 |         2317336 |          278466 |           11010 |           2606813 |        88.8954 |        10.6822 |       0.422355 |              51598 |            48156 |          1.07148 |                 0.6 |           5364 |          277627 |       1.93209 |             2.2 |      5380443 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
 |   2015 |       7 | Minnesota    | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |       13.07 |       10.16 |        7.74 |         10.43 | 2.02888e+06 | 2.16161e+06 | 1.77794e+06 |   5.97034e+06 |      33.9826 |      36.2059 |      29.7795 |         2374674 |          289044 |            9812 |           2673531 |        88.8216 |        10.8113 |       0.367005 |              54431 |            49844 |          1.09203 |                 1.7 |           4873 |          292023 |       1.6687  |             2.2 |      5489594 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
 
+<iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
+
 <iframe src="assets/demandloss_duration.html" width=800 height=600 frameBorder=0></iframe>
 
 
@@ -35,7 +37,7 @@ In this project, I studied prepared and cleaned a data set containing major outa
 | District of Columbia |                   1 |                       0 |                    0 |           0 |               0 |                9 |                               0 |
 | Florida              |                   4 |                       0 |                    2 |           0 |               3 |               26 |                              10 |
 
-<iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
+
 # Assessment of Missingness
 
 |   YEAR |   CUSTOMERS AFFECTED Missing = False |   CUSTOMERS AFFECTED Missing = True |
@@ -54,6 +56,7 @@ In this project, I studied prepared and cleaned a data set containing major outa
 
 
 <iframe src="assets/kde_plot_real_vs_cust.html" width=800 height=600 frameBorder=0></iframe>
+
 # Hypothesis Testing
 
 | NERC.REGION   |     Fall |   Spring |   Summer |    Winter |
