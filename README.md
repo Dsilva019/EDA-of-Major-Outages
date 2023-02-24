@@ -109,9 +109,9 @@ After performing the permutation test with the ks as my test statistic, I got a 
 
 
 # Hypothesis Testing
-### Main Questtion: Is there significant difference between the distribution of outages of the seasons in the SPP NERC compared to the Overall distribution of outages in the NERC Regions.
+### Main Questtion: Is there significant difference between the distribution of outages of the seasons in the SPP NERC Region compared to the Overall distribution of outages in the NERC Regions.
 
-&emsp;&emsp;&emsp;To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. The table below displays said distributions for a couple of the NERC Regions.
+&emsp;&emsp;&emsp;To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. To create these distributions, I first created a new column called 'Season', which stated the season in which the outage occurred. Once I did that I then created a table that displays the distributions, the table below displays a couple of the NERC Regions.
 &nbsp;
 
 
