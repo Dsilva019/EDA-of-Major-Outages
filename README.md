@@ -21,13 +21,19 @@ by Diego Silva (d1silva@ucsd.edu)
 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |              nan |                68200 |       11.79 |        9.25 |        6.71 |          9.19 | 1.85152e+06 | 1.94117e+06 | 1.99303e+06 |   5.78706e+06 |      31.9941 |      33.5433 |      34.4393 |         2317336 |          278466 |           11010 |           2606813 |        88.8954 |        10.6822 |       0.422355 |              51598 |            48156 |          1.07148 |                 0.6 |           5364 |          277627 |       1.93209 |             2.2 |      5380443 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
 |   2015 |       7 | Minnesota    | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |       13.07 |       10.16 |        7.74 |         10.43 | 2.02888e+06 | 2.16161e+06 | 1.77794e+06 |   5.97034e+06 |      33.9826 |      36.2059 |      29.7795 |         2374674 |          289044 |            9812 |           2673531 |        88.8216 |        10.8113 |       0.367005 |              54431 |            49844 |          1.09203 |                 1.7 |           4873 |          292023 |       1.6687  |             2.2 |      5489594 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
 
+
+
 &emsp;&emsp;&emsp;The bar plot below presents the count of outages that occurred in each U.S state. One interesting note is that the California seems to have a significantly higher count outages compared to the rest of the states, even though it is not the biggest state by land area.
 
 <iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
 
+
+
 &emsp;&emsp;&emsp;The scatter plot below presents the relationship between the OUTAGE DURATION and DEMAND LOSS MW columns of Outages. The plot suggests that short Outage Duration times results in a higher Demand Loss (MW) and longer Outage Duration times results in a lower Demand Loss (MW).
 
 <iframe src="assets/demandloss_duration.html" width=800 height=600 frameBorder=0></iframe>
+
+
 
 &emsp;&emsp;&emsp;This table shows gives a break down of Outage CATEGORY CAUSE for each state, showing which Outage CATEGORY CAUSE is the most and least common among each state. Also gives a general idea how severe the problem of outages is in each state.
 
@@ -46,6 +52,8 @@ by Diego Silva (d1silva@ucsd.edu)
 | Florida              |                   4 |                       0 |                    2 |           0 |               3 |               26 |                              10 |
 
 
+
+
 # Assessment of Missingness
 ## NMAR Analysis:
 &emsp;&emsp;&emsp;In the Outages data frame, the 'CAUTEGORY.CAUSE.DETAIL' column is supposed to give a specific reason for the 'CATEGORY.CAUSE' of the outage. This column could be NMAR because the reason why a value would be missing can be due to negligence of the person logging the data because they may have felt the specific reason may not be significant enough or if an investigation was not done. This column would be MAR if another column provided information whether an investigation was done to figure out the specific cause of the outage.
@@ -53,6 +61,7 @@ by Diego Silva (d1silva@ucsd.edu)
 ## Missingness Dependency:
 &emsp;&emsp;&emsp;I wanted to find out a column in which the missingness of 'CUSTOMERS.AFFECTED' was dependent on and a column in which its missingness was not dependent on. For this investigation I chose the 'YEAR' and 'PC.REALGSP.CHANGE' columns to test the missingness dependency of these columns.
 
+### Missingness dependency on the 'YEAR' column
 &emsp;&emsp;&emsp;For my test of the missingness dependency on the 'YEAR' column, I first created a distribution plot as seen below. This plot shows the distribution of 'YEAR' by missingness of 'CUSTOMERS.AFFECTED'. To investigate whether the differences in the distributions were significant, I decided to perform a permutation test.
 
 <iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
@@ -64,6 +73,7 @@ by Diego Silva (d1silva@ucsd.edu)
 
 &emsp;&emsp;&emsp;In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, we conclude that the CUSTOMERS.AFFECTED column is dependent on the 'YEAR' column.
 
+### Missingness dependency on the 'PC.REALGSP.CHANGE' column
 &emsp;&emsp;&emsp;For my test of the missingness dependency on the 'PC.REALGSP.CHANGE' column, I first created a kernel density plot as seen below. This plot shows the kernel density of 'PC.REALGSP.CHANGE' by missingness of 'CUSTOMERS.AFFECTED'. Since the difference of means of the plots was 0.0577, which tells us the means of the two distributions are similar. But as seen in the plot the shapes look different. As a result, I decided to test whether the differences in shape were significant or not by using the Kolmogorov-Smirnov (ks) test statistic as my test statistic for this permutation test. My Null Hypothesis, the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. My alternative hypothesis , the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. Additionally, I chose a significance level of 0.05 as a cut off for my p-value, since a p-value smaller than 0.05 indicates a strong evidence against my null hypothesis.
 
 <iframe src="assets/kde_plot_real_vs_cust.html" width=800 height=600 frameBorder=0></iframe>
@@ -72,8 +82,10 @@ After performing the permutation test with the ks as my test statistic, I got a 
 
 &emsp;&emsp;&emsp;Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
 
-## Overall Conclusion:
-&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can be said for the 'PC.REALGSP.CHANGE'.
+## Overall Conclusion For Missingness Dependency Investigation:
+&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'.Since my investigation shows that the missingness'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
+
+
 
 # Hypothesis Testing
 &emsp;&emsp;&emsp;To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. The table below displays said distributions for a couple of the NERC Regions.
@@ -88,9 +100,13 @@ After performing the permutation test with the ks as my test statistic, I got a 
 | HECO          | 0.666667 | 0        | 0.333333 | 0         |
 | HI            | 1        | 0        | 0        | 0         |
 
+
+
 &emsp;&emsp;&emsp;The chart below displays the distributions of the outages in each season in the SPP Region and the Overall NERC Region distribution of outages in each season. I noticed that there does seem to be a difference between the distributions but to test whether the differences are significant or not I decided to perform a hypothesis test. Like my previous tests, I chose a significance level of 0.05 as a cut off for my p-value, since a p-value smaller than 0.05 indicates a strong evidence against my null hypothesis.
 
+
 <iframe src="assets/outage_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
+
 
 Null Hypothesis: There is not a difference between the season distributions between the SPP Region and the overall distribution of the seasons in the NERC Regions.
 
