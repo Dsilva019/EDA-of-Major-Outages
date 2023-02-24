@@ -4,13 +4,13 @@ by Diego Silva (d1silva@ucsd.edu)
 
 
 # Introduction
-&emsp;&emsp;&emsp;In this project, I cleaned and analyzed a data set containing major outages reported by different states in the United States from January 2000-July 2016. In my analysis, I wanted to investigate where and when major outages tend to occur. This data set and analysis provide an understanding of major outage patterns and how in the future they can be avoided to improve our electrical infrastructure. Moving forward I will reference the data set as Outages.
+&emsp;&emsp;&emsp;In this project, I cleaned and analyzed a data set containing major outages reported by different states in the United States from January 2000-July 2016. In my analysis, I wanted to investigate where and when major outages tend to occur. This data set and analysis provide an understanding of major outage patterns and how in the future they can be avoided to improve our national electrical infrastructure. Moving forward I will reference the data set as Outages.
 
 
 
 
 # Cleaning and EDA
-&emsp;&emsp;&emsp;In my data cleaning process, I first looked at the raw data set to assess what steps needed to be done. I looked for any unnecessary rows and columns, checked the column names, and anything else that looked out of the ordinary for a data set. In my specific case, I noticed there were a couple of columns and rows that were unnecessary and the column names were incorrect. So I dropped said columns, set the columns to their proper respective names, and reset the index of the data frame. Lastly, I ensured the data types of the columns were the best possible type that allowed me to properly analyze the data frame.
+&emsp;&emsp;&emsp;In my data cleaning process, I first looked at the raw data set to assess what steps needed to be done. I looked for any unnecessary rows and columns, checked the column names, and anything else that looked out of the ordinary for a data set. In my specific case, I noticed there were a couple of columns and rows that were unnecessary and the column names were incorrect. So I dropped said columns and rows, set the columns to their proper respective names, and reset the index of the data frame. Lastly, I ensured the data types of the columns were the best possible type that allowed me to properly analyze the data frame.
 
 
 |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   RES.PRICE |   COM.PRICE |   IND.PRICE |   TOTAL.PRICE |   RES.SALES |   COM.SALES |   IND.SALES |   TOTAL.SALES |   RES.PERCEN |   COM.PERCEN |   IND.PERCEN |   RES.CUSTOMERS |   COM.CUSTOMERS |   IND.CUSTOMERS |   TOTAL.CUSTOMERS |   RES.CUST.PCT |   COM.CUST.PCT |   IND.CUST.PCT |   PC.REALGSP.STATE |   PC.REALGSP.USA |   PC.REALGSP.REL |   PC.REALGSP.CHANGE |   UTIL.REALGSP |   TOTAL.REALGSP |   UTIL.CONTRI |   PI.UTIL.OFUSA |   POPULATION |   POPPCT_URBAN |   POPPCT_UC |   POPDEN_URBAN |   POPDEN_UC |   POPDEN_RURAL |   AREAPCT_URBAN |   AREAPCT_UC |   PCT_LAND |   PCT_WATER_TOT |   PCT_WATER_INLAND | OUTAGE.START        | OUTAGE.RESTORATION   |
@@ -23,7 +23,7 @@ by Diego Silva (d1silva@ucsd.edu)
 
 
 
-&emsp;&emsp;&emsp;The bar plot below presents the count of outages that occurred in each U.S. state. One interesting note is that California seems to have a significantly higher count outage compared to the rest of the states, even though it is not the biggest state by land area.
+&emsp;&emsp;&emsp;The bar plot below presents the count of outages that occurred in each U.S. state. One interesting note is that California seems to have a significantly higher count of outages compared to the rest of the states, even though it is not the biggest state by land area.
 
 <iframe src="assets/num_outages.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -35,7 +35,7 @@ by Diego Silva (d1silva@ucsd.edu)
 
 
 
-&emsp;&emsp;&emsp;This table shows gives a break down of Outage CATEGORY CAUSE for each state, showing which Outage CATEGORY CAUSE is the most and least common among each state. Also gives a general idea of how severe the problem of outages is in each state.
+&emsp;&emsp;&emsp;This table shows gives a break down of Outage CATEGORY CAUSE for each state, showing which Outage 'CATEGORY.CAUSE' value is the most and least common among each state. Also gives a general idea of how severe the problem of outages is in each state.
 
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
@@ -67,14 +67,25 @@ by Diego Silva (d1silva@ucsd.edu)
 <iframe src="assets/year_missingness.html" width=800 height=600 frameBorder=0></iframe>
 
 
- &emsp;&emsp;&emsp;My null hypothesis, the distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. My alternative hypothesis is, The distribution of 'YEAR' when 'CUSTOMERS' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. I decided to use the total variation distance (tvd) as my test statistic, the observed tvd value I saw was 0.306. Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis. The plot below shows the results of my permutation test. It displays the empirical distribution of the generated TVDs under the null. The green line shows the observed value. The p-value I calculated was essentially 0.
+
+ Null Hypothesis: The distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
+
+ Alternative Hypothesis: The distribution of 'YEAR' when 'CUSTOMERS' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
+
+  &emsp;&emsp;&emsp;I decided to use the total variation distance (TVD) as my test statistic, the observed TVD value I saw was 0.306. Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis. The plot below shows the results of my permutation test. It displays the empirical distribution of the generated TVDs under the null. The green line shows the observed value. The p-value I calculated was essentially 0.
 
 <iframe src="assets/year_missingness_tvd_dist.html" width=800 height=600 frameBorder=0></iframe>
 
-&emsp;&emsp;&emsp;In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. It is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, we conclude that the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' column.
+&emsp;&emsp;&emsp;In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, we conclude that the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' column.
 
 ### Missingness dependency on the 'PC.REALGSP.CHANGE' column
-&emsp;&emsp;&emsp;For my test of the missingness dependency on the 'PC.REALGSP.CHANGE' column, I first created a kernel density plot as seen below. This plot shows the kernel density of 'PC.REALGSP.CHANGE' by missingness of 'CUSTOMERS.AFFECTED'. Since the difference of means of the plots was 0.0577, which tells us the means of the two distributions are similar. But as seen in the plot the shapes look different. As a result, I decided to test whether the differences in shape were significant or not by using the Kolmogorov-Smirnov (ks) test statistic as my test statistic for this permutation test. My Null Hypothesis, the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. My alternative hypothesis, the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis.
+&emsp;&emsp;&emsp;For my test of the missingness dependency on the 'PC.REALGSP.CHANGE' column, I first created a kernel density plot as seen below. This plot shows the kernel density of 'PC.REALGSP.CHANGE' by missingness of 'CUSTOMERS.AFFECTED'. Since the difference of means of the plots was 0.0577, which tells us the means of the two distributions are similar. But as seen in the plot the shapes look different. As a result, I decided to test whether the differences in shape were significant or not by using the Kolmogorov-Smirnov (ks) test statistic as my test statistic for this permutation test.
+
+Null Hypothesis: The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
+
+Alternative hypothesis: The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
+
+&emsp;&emsp;&emsp;Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis.
 
 <iframe src="assets/kde_plot_real_vs_cust.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -83,7 +94,7 @@ After performing the permutation test with the ks as my test statistic, I got a 
 &emsp;&emsp;&emsp;Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
 
 ## Overall Conclusion For Missingness Dependency Investigation:
-&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that the missingness'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
+&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that the missingness of 'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
 
 
 
@@ -102,7 +113,7 @@ After performing the permutation test with the ks as my test statistic, I got a 
 
 
 
-&emsp;&emsp;&emsp;The chart below displays the distributions of the outages in each season in the SPP Region and the Overall NERC Region distribution of outages in each season. I noticed that there does seem to be a difference between the distributions but to test whether the differences are significant or not I decided to perform a hypothesis test. Like my previous tests, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis.
+&emsp;&emsp;&emsp;The plot below displays the distributions of the outages in each season in the SPP Region and the Overall NERC Region distribution of outages in each season. I noticed that there does seem to be a difference between the distributions but to test whether the differences are significant or not I decided to perform a hypothesis test. Like my previous tests, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis.
 
 
 <iframe src="assets/outage_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
@@ -112,10 +123,10 @@ Null Hypothesis: There is no difference between the season distributions between
 
 Alternative Hypothesis: there is a difference between the season distributions between the SPP Region and the overall distribution of the seasons in the NERC Regions.
 
-For my hypothesis, I will use total variation distance, since I am comparing the distributions of outages in each season which are categorical distributions. My observed tvd was 0.123.
+For my hypothesis test, I will use total variation distance (TVD) as my test statistic, since I am comparing the distributions of outages in each season which are categorical distributions. My observed TVD was 0.123.
 
-&emsp;&emsp;&emsp;After performing my hypothesis, I plotted my results in the plot below. The plot displays the empirical distributions of the generated TVDs under the null. The green line in the plot represents my observed tvd. Additionally, my calculated p-value was 0. Which can be seen in the graph since there are essentially no tvds generated in the hypothesis test under the null that were equal to or greater than my observed.
+&emsp;&emsp;&emsp;After performing my hypothesis, I plotted my results in the plot below. The plot displays the empirical distributions of the generated TVDs under the null. The green line in the plot represents my observed TVD. Additionally, my calculated p-value was 0. Which can be seen in the graph since there are essentially no TVDs generated in the hypothesis test under the null that were equal to or greater than my observed TVD.
 
 <iframe src="assets/emp_tvd_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
 
-&emsp;&emsp;&emsp;In conclusion, the probability that the observed TVD came from the distribution of TVDs under the assumption that null is true is essentially 0. Additionally, my p-value was smaller than the 0.05 significance level, so we reject the null. There is strong enough evidence to suggest that the distribution of outages for each season in the SPP Region is different from the distribution of outages for each season for the Region.
+&emsp;&emsp;&emsp;In conclusion, the probability that the observed TVD came from the distribution of TVDs under the assumption that null is true is essentially 0. Additionally, my p-value was smaller than the 0.05 significance level, so we reject the null. There is strong enough evidence to suggest that the distribution of outages for each season in the SPP Region is different from the Overall distribution of outages for each season.
