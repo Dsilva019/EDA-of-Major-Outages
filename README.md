@@ -4,7 +4,7 @@ by Diego Silva (d1silva@ucsd.edu)
 
 
 # Introduction
-&emsp;&emsp;&emsp;In this project, I cleaned and analyzed a data set containing major outages reported by different states in the United States from January 2000-July 2016. In my analysis, I wanted to investigate where and when major outages tend to occur. This data set and analysis provide an understanding of major outage patterns and how in the future they can be avoided to improve our national electrical infrastructure. Moving forward I will reference the data set as Outages.
+&emsp;&emsp;&emsp;In this project, I cleaned and analyzed a data set containing major outages reported by different states in the United States from January 2000-July 2016. The main question I want to answer in this analysis, is there significant difference between the distribution of outages of the seasons in the SPP NERC compared to the Overall distribution of outages in the NERC Regions. This data set and analysis provide an understanding of major outage patterns and how in the future they can be avoided to improve our national electrical infrastructure. Moving forward I will reference the data set as Outages.
 
 
 
@@ -20,6 +20,7 @@ by Diego Silva (d1silva@ucsd.edu)
 |   2010 |      10 | Minnesota    | MN            | MRO           | East North Central |            -1.5 | cold               | severe weather     | heavy wind              |               nan |              3000 |              nan |                70000 |       10.87 |        8.19 |        6.07 |          8.15 | 1.46729e+06 | 1.80168e+06 | 1.9513e+06  |   5.22212e+06 |      28.0977 |      34.501  |      37.366  |         2300291 |          276463 |           10150 |           2586905 |        88.9206 |        10.687  |       0.392361 |              50447 |            47287 |          1.06683 |                 2.7 |           4571 |          267895 |       1.70627 |             2.1 |      5310903 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |
 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |              nan |                68200 |       11.79 |        9.25 |        6.71 |          9.19 | 1.85152e+06 | 1.94117e+06 | 1.99303e+06 |   5.78706e+06 |      31.9941 |      33.5433 |      34.4393 |         2317336 |          278466 |           11010 |           2606813 |        88.8954 |        10.6822 |       0.422355 |              51598 |            48156 |          1.07148 |                 0.6 |           5364 |          277627 |       1.93209 |             2.2 |      5380443 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
 |   2015 |       7 | Minnesota    | MN            | MRO           | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |              250 |               250000 |       13.07 |       10.16 |        7.74 |         10.43 | 2.02888e+06 | 2.16161e+06 | 1.77794e+06 |   5.97034e+06 |      33.9826 |      36.2059 |      29.7795 |         2374674 |          289044 |            9812 |           2673531 |        88.8216 |        10.8113 |       0.367005 |              54431 |            49844 |          1.09203 |                 1.7 |           4873 |          292023 |       1.6687  |             2.2 |      5489594 |          73.27 |       15.28 |           2279 |      1700.5 |           18.2 |            2.14 |          0.6 |    91.5927 |         8.40733 |            5.47874 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
+
 &nbsp;
 
 
@@ -51,6 +52,7 @@ by Diego Silva (d1silva@ucsd.edu)
 | Delaware             |                   1 |                       0 |                   37 |           0 |               0 |                2 |                               1 |
 | District of Columbia |                   1 |                       0 |                    0 |           0 |               0 |                9 |                               0 |
 | Florida              |                   4 |                       0 |                    2 |           0 |               3 |               26 |                              10 |
+
 &nbsp;
 
 
@@ -79,7 +81,7 @@ by Diego Silva (d1silva@ucsd.edu)
 
 <iframe src="assets/year_missingness_tvd_dist.html" width=800 height=600 frameBorder=0></iframe>
 
-&emsp;&emsp;&emsp;In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, we conclude that the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' column.
+&emsp;&emsp;&emsp;In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, the evidence suggests that the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' column.
 &nbsp;
 
 ### Missingness dependency on the 'PC.REALGSP.CHANGE' column
@@ -95,15 +97,17 @@ Alternative hypothesis: The shape of the distribution of 'PC.REALGSP.CHANGE' whe
 
 After performing the permutation test with the ks as my test statistic, I got a p-value of 0.279.
 
-&emsp;&emsp;&emsp;Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
+&emsp;&emsp;&emsp;Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. Which suggests the missingness of 'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
 
 ## Overall Conclusion For Missingness Dependency Investigation:
-&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that the missingness of 'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
+&emsp;&emsp;&emsp;In my missingness dependency investigation, I concluded that there is strong enough evidence to suggest that the missingness of the 'CUSTOMERS.AFFECTED' column is dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that there is not enough evidence to suggest that the missingness of 'CUSTOMERS.AFFECTED' is not dependent on 'PC.REALGSP.CHANGE'.
 &nbsp;
 
 
 
 # Hypothesis Testing
+### Main Questtion: is there significant difference between the distribution of outages of the seasons in the SPP NERC compared to the Overall distribution of outages in the NERC Regions.
+
 &emsp;&emsp;&emsp;To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. The table below displays said distributions for a couple of the NERC Regions.
 &nbsp;
 
@@ -115,6 +119,7 @@ After performing the permutation test with the ks as my test statistic, I got a 
 | FRCC, SERC    | 0        | 0        | 0        | 1         |
 | HECO          | 0.666667 | 0        | 0.333333 | 0         |
 | HI            | 1        | 0        | 0        | 0         |
+
 &nbsp;
 
 
