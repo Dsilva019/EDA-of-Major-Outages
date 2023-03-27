@@ -1,5 +1,5 @@
 # Exploratory Data Analysis of Major Outages
-by Diego Silva (d1silva@ucsd.edu)
+<small> <i>By Diego Silva (d1silva@ucsd.edu). My multiclass classification model on this dataset can be found <a href="https://dsilva019.github.io/Major-Outage-Cause-Category-Classifier/"> here</a>.</i> </small>
 
 
 
