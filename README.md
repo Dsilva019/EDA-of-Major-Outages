@@ -74,7 +74,7 @@ For my test of the missingness dependency on the 'YEAR' column, I first created 
 &nbsp;
 
 
-<n>Null Hypothesis: </b>The distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
+<b>Null Hypothesis: </b>The distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
 
 <b>Alternative Hypothesis: </b>The distribution of 'YEAR' when 'CUSTOMERS' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
 
