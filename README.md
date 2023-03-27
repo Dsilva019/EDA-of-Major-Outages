@@ -62,11 +62,11 @@ This table shows gives a break down of Outage CATEGORY CAUSE for each state, sho
 ## NMAR Analysis:
 In the Outages data frame, the 'CAUTEGORY.CAUSE.DETAIL' column is supposed to give a specific reason for the 'CATEGORY.CAUSE' of the outage. This column could be NMAR because the reason why a value would be missing can be due to negligence of the person logging the data because they may have felt the specific reason may not be significant enough or if an investigation was not done. This column would be MAR if another column provided information on whether an investigation was done to figure out the specific cause of the outage.
 
-## Missingness Dependency:
+<strong> Missingness Dependency: </strong>
 I wanted to find out a column in which the missingness of 'CUSTOMERS.AFFECTED' was dependent and a column in which its missingness was not dependent. For this investigation, I chose the 'YEAR' and 'PC.REALGSP.CHANGE' columns to test the missingness dependency of these columns.
 &nbsp;
 
-### Missingness dependency on the 'YEAR' column
+<strong> Missingness dependency on the 'YEAR' column</strong>
 For my test of the missingness dependency on the 'YEAR' column, I first created a distribution plot as seen below. This plot shows the distribution of 'YEAR' by missingness of 'CUSTOMERS.AFFECTED'. To investigate whether the differences in the distributions were significant, I decided to perform a permutation test.
 &nbsp;
 
@@ -86,12 +86,12 @@ I decided to use the total variation distance (TVD) as my test statistic, the ob
 In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, the evidence suggests that the 'CUSTOMERS.AFFECTED' column may be dependent on the 'YEAR' column.
 &nbsp;
 
-### Missingness dependency on the 'PC.REALGSP.CHANGE' column
+<strong> Missingness Dependency on the 'PC.REALGSP.CHANGE' Column</strong>
 For my test of the missingness dependency on the 'PC.REALGSP.CHANGE' column, I first created a kernel density plot as seen below. This plot shows the kernel density of 'PC.REALGSP.CHANGE' by missingness of 'CUSTOMERS.AFFECTED'. Since the difference of means of the plots was 0.0577, which tells us the means of the two distributions are similar. But as seen in the plot the shapes look different. As a result, I decided to test whether the differences in shape were significant or not by using the Kolmogorov-Smirnov (ks) test statistic as my test statistic for this permutation test.
 
-Null Hypothesis: The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
+<b> Null Hypothesis: </b>The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
 
-Alternative hypothesis: The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
+<b>Alternative hypothesis:</b> The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
 
 Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis.
 
@@ -101,14 +101,15 @@ After performing the permutation test with the ks as my test statistic, I got a 
 
 Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. Which suggests the missingness of 'CUSTOMERS.AFFECTED' may not be dependent on 'PC.REALGSP.CHANGE'.
 
-## Overall Conclusion For Missingness Dependency Investigation:
+<strong> Overall Conclusion For Missingness Dependency Investigation: </strong>
 In my missingness dependency investigation, I concluded that there is strong enough evidence to suggest that the missingness of the 'CUSTOMERS.AFFECTED' column may be dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that there is not enough evidence to suggest that the missingness of 'CUSTOMERS.AFFECTED' may not be dependent on 'PC.REALGSP.CHANGE'.
 &nbsp;
 
 
 
 # Hypothesis Testing
- Main Questtion: Is there significant difference between the distribution of outages of the seasons in the SPP NERC Region compared to the Overall distribution of outages in the NERC Regions.
+
+<b> Main Question: Is there significant difference between the distribution of outages of the seasons in the SPP NERC Region compared to the Overall distribution of outages in the NERC Regions. </b>
 
 To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. To create these distributions, I first created a new column called 'Season', which stated the season in which the outage occurred. Once I did that I then created a table that displays the distributions, the table below displays a couple of the NERC Regions.
 &nbsp;
@@ -131,9 +132,9 @@ The plot below displays the distributions of the outages in each season in the S
 <iframe src="assets/outage_dist_spp_overall.html" width=800 height=600 frameBorder=0></iframe>
 &nbsp;
 
-Null Hypothesis: There is not a difference between the outages distributions of the seasons in the SPP Region and the Overall outages distributions of the seasons of the NERC Regions
+<b>Null Hypothesis: </b>There is not a difference between the outages distributions of the seasons in the SPP Region and the Overall outages distributions of the seasons of the NERC Regions
 
-Alternative Hypothesis: There is a difference between the outages distributions of the seasons in the SPP Region and the Overall outages distributions of the seasons of the NERC Regions
+<b>Alternative Hypothesis: </b>There is a difference between the outages distributions of the seasons in the SPP Region and the Overall outages distributions of the seasons of the NERC Regions
 
 For my hypothesis test, I will use total variation distance (TVD) as my test statistic, since I am comparing the distributions of outages in each season which are categorical distributions. My observed TVD was 0.123.
 
