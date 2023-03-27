@@ -59,14 +59,14 @@ This table shows gives a break down of Outage CATEGORY CAUSE for each state, sho
 
 
 # Assessment of Missingness
-## NMAR Analysis:
+### NMAR Analysis:
 In the Outages data frame, the 'CAUTEGORY.CAUSE.DETAIL' column is supposed to give a specific reason for the 'CATEGORY.CAUSE' of the outage. This column could be NMAR because the reason why a value would be missing can be due to negligence of the person logging the data because they may have felt the specific reason may not be significant enough or if an investigation was not done. This column would be MAR if another column provided information on whether an investigation was done to figure out the specific cause of the outage.
 
-<strong> Missingness Dependency: </strong>
+### Missingness Dependency:
 I wanted to find out a column in which the missingness of 'CUSTOMERS.AFFECTED' was dependent and a column in which its missingness was not dependent. For this investigation, I chose the 'YEAR' and 'PC.REALGSP.CHANGE' columns to test the missingness dependency of these columns.
 &nbsp;
 
-<strong> Missingness dependency on the 'YEAR' column</strong>
+#### Missingness dependency on the 'YEAR' column
 For my test of the missingness dependency on the 'YEAR' column, I first created a distribution plot as seen below. This plot shows the distribution of 'YEAR' by missingness of 'CUSTOMERS.AFFECTED'. To investigate whether the differences in the distributions were significant, I decided to perform a permutation test.
 &nbsp;
 
@@ -74,9 +74,9 @@ For my test of the missingness dependency on the 'YEAR' column, I first created 
 &nbsp;
 
 
-Null Hypothesis: The distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
+<n>Null Hypothesis: </b>The distribution of 'YEAR' when 'CUSTOMERS' is missing is the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
 
-Alternative Hypothesis: The distribution of 'YEAR' when 'CUSTOMERS' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
+<b>Alternative Hypothesis: </b>The distribution of 'YEAR' when 'CUSTOMERS' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing.
 
 I decided to use the total variation distance (TVD) as my test statistic, the observed TVD value I saw was 0.306. Additionally, I chose a significance level of 0.05 as a cut-off for my p-value, since a p-value smaller than 0.05 indicates strong evidence against my null hypothesis. The plot below shows the results of my permutation test. It displays the empirical distribution of the generated TVDs under the null. The green line shows the observed value. The p-value I calculated was essentially 0.
   &nbsp;
@@ -86,7 +86,7 @@ I decided to use the total variation distance (TVD) as my test statistic, the ob
 In conclusion, we reject the null, since my p-value, 0, is smaller than the 0.05 significance level. There is strong enough evidence to suggest the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is missing is not the same as the distribution of 'YEAR' when 'CUSTOMERS.AFFECTED' is not missing. As a result, the evidence suggests that the 'CUSTOMERS.AFFECTED' column may be dependent on the 'YEAR' column.
 &nbsp;
 
-<strong> Missingness Dependency on the 'PC.REALGSP.CHANGE' Column</strong>
+#### Missingness Dependency on the 'PC.REALGSP.CHANGE' Column
 For my test of the missingness dependency on the 'PC.REALGSP.CHANGE' column, I first created a kernel density plot as seen below. This plot shows the kernel density of 'PC.REALGSP.CHANGE' by missingness of 'CUSTOMERS.AFFECTED'. Since the difference of means of the plots was 0.0577, which tells us the means of the two distributions are similar. But as seen in the plot the shapes look different. As a result, I decided to test whether the differences in shape were significant or not by using the Kolmogorov-Smirnov (ks) test statistic as my test statistic for this permutation test.
 
 <b> Null Hypothesis: </b>The shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing.
@@ -101,7 +101,7 @@ After performing the permutation test with the ks as my test statistic, I got a 
 
 Since the p-value is greater than the 0.05 significance level, we fail to reject the null. There is not enough evidence to suggest that the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is missing is not the same as the shape of the distribution of 'PC.REALGSP.CHANGE' when 'CUSTOMERS.AFFECTED' is not missing. Which suggests the missingness of 'CUSTOMERS.AFFECTED' may not be dependent on 'PC.REALGSP.CHANGE'.
 
-<strong> Overall Conclusion For Missingness Dependency Investigation: </strong>
+#### Overall Conclusion For Missingness Dependency Investigation:
 In my missingness dependency investigation, I concluded that there is strong enough evidence to suggest that the missingness of the 'CUSTOMERS.AFFECTED' column may be dependent on the 'YEAR' but the same can not be said for the 'PC.REALGSP.CHANGE'. Since my investigation shows that there is not enough evidence to suggest that the missingness of 'CUSTOMERS.AFFECTED' may not be dependent on 'PC.REALGSP.CHANGE'.
 &nbsp;
 
@@ -109,7 +109,7 @@ In my missingness dependency investigation, I concluded that there is strong eno
 
 # Hypothesis Testing
 
-<b> Main Question: Is there significant difference between the distribution of outages of the seasons in the SPP NERC Region compared to the Overall distribution of outages in the NERC Regions. </b>
+<b>Is there significant difference between the distribution of outages of the seasons in the SPP NERC Region compared to the Overall distribution of outages in the NERC Regions. </b>
 
 To answer my main question I decided to compare the distributions of the outages in each season of the SPP Region and the Overall NERC Region distribution of outages in each season. To create these distributions, I first created a new column called 'Season', which stated the season in which the outage occurred. Once I did that I then created a table that displays the distributions, the table below displays a couple of the NERC Regions.
 &nbsp;
